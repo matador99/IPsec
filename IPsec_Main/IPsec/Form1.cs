@@ -76,7 +76,7 @@ namespace IPsec
                         }
                     }
                     else MessageBox.Show(@"Нет данных соответствующих условию");
-                    int PersonRoleID = 4;//ID пользователя для просмотра истории
+                    int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
                         labelHistory.Visible = true;
@@ -173,7 +173,7 @@ namespace IPsec
                         }
                     }
                     else MessageBox.Show(@"Нет данных соответствующих условию");
-                    int PersonRoleID = 4;//ID пользователя для просмотра истории
+                    int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
                         labelHistory.Visible = true;
@@ -269,7 +269,7 @@ namespace IPsec
                         }
                     }
                     else MessageBox.Show(@"Нет данных соответствующих условию");
-                    int PersonRoleID = 4;//ID пользователя для просмотра истории
+                    int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
                         labelHistory.Visible = true;
@@ -365,7 +365,7 @@ namespace IPsec
                         }
                     }
                     else MessageBox.Show(@"Нет данных соответствующих условию");
-                    int PersonRoleID = 4;//ID пользователя для просмотра истории
+                    int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
                         labelHistory.Visible = true;
