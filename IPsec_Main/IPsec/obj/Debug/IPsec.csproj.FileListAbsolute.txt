@@ -32,7 +32,6 @@ D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\obj\Debug\IPsec.exe
 D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\obj\Debug\IPsec.pdb
 D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\bin\Debug\IPsec.exe
 D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\bin\Debug\IPsec.pdb
-D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\obj\Debug\IPsec.csprojResolveAssemblyReference.cache
 D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\obj\Debug\IPsec.Form1.resources
 D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\obj\Debug\IPsec.Form2.resources
 D:\tEST\IPsec_Main v1.1 beta\IPsec_Main\IPsec\obj\Debug\IPsec.Properties.Resources.resources
