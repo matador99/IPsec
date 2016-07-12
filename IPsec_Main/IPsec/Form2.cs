@@ -21,7 +21,7 @@ namespace IPsec
 
         private void Form2_Load(object sender, EventArgs e)
         {
-          SqlConnection con2 = new SqlConnection(@"Data Source=91.219.252.85,1433;Network Library=dbmssocn;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+          SqlConnection con2 = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
           con2.Open();
           string history="EXECUTE [dbo].[ShowHistory]";
           SqlDataAdapter da = new SqlDataAdapter(history, con2);
@@ -34,7 +34,7 @@ namespace IPsec
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            SqlConnection con2 = new SqlConnection(@"Data Source=91.219.252.85,1433;Network Library=dbmssocn;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+            SqlConnection con2 = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
             con2.Open();
             string history = "EXECUTE [dbo].[ShowHistory]";
             SqlDataAdapter da = new SqlDataAdapter(history, con2);

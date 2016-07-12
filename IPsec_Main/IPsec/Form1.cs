@@ -36,10 +36,12 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=91.219.252.85,1433;Network Library=dbmssocn;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                
                 try
                 {
                     con.Open();
+                    
                 }
                 catch
                 {
@@ -133,7 +135,7 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=91.219.252.85,1433;Network Library=dbmssocn;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
                 try
                 {
                     con.Open();
@@ -229,7 +231,7 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=91.219.252.85,1433;Network Library=dbmssocn;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
                 try
                 {
                     con.Open();
@@ -325,7 +327,7 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=91.219.252.85,1433;Network Library=dbmssocn;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
                 try
                 {
                     con.Open();
