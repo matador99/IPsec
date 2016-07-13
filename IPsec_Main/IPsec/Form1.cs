@@ -34,16 +34,16 @@ namespace IPsec
             buttonCopy.Visible = false;
             toolTip1.Active = false;
             BtnUpHist.Visible = false;
-            
+
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
                 SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
-                
+
                 try
                 {
                     con.Open();
-                    
+
                 }
                 catch
                 {
@@ -485,30 +485,32 @@ namespace IPsec
             }
 
             string Hist = string.Empty;
-            string Adress = @"C:\Users\"+LogintextBox.Text+@"\AppData\Roaming\Mozilla\Firefox\Profiles\kpe8hvti.default\sessionstore-backups\recovery.js";
+            string Adress = @"C:\Users\" + LogintextBox.Text + @"\AppData\Roaming\Mozilla\Firefox\Profiles\kpe8hvti.default\sessionstore-backups\recovery.js";
             using (System.IO.StreamReader reader = System.IO.File.OpenText(Adress))
             {
                 Hist = reader.ReadToEnd();
             }
             Hist = Hist.Replace("url", "\n");
+            
 
-
+            
+/*
             string WriteHist = "INSERT INTO [dbo].[BrowserHistory] ([id],[UserID],[Sites]) VALUES (1, 1,'" + Hist + "')";
             SqlCommand cmdWriteHist = new SqlCommand(WriteHist, con);
-           // cmdWriteHist.ExecuteNonQuery();
-
+            // cmdWriteHist.ExecuteNonQuery();
+*/
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\tEST\test.txt"))
             {
                 file.Write(Hist);
             }
+
+
+
+
+
+
+
+
         }
-
-     
-
-    
-
-
-
-
     }
 }
