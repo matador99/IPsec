@@ -33,6 +33,8 @@ namespace IPsec
             buttonHistory.Visible = false;
             buttonCopy.Visible = false;
             toolTip1.Active = false;
+            BtnUpHist.Visible = false;
+            
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
@@ -58,6 +60,8 @@ namespace IPsec
                     labelConnect.Text = drEnter[1].ToString();
                     labelUser.Visible = true;
                     labelConnect.Visible = true;
+                    BtnUpHist.Visible = true;
+                    LogintextBox.Enabled = false; //Login textbox is blocked
                     drEnter.Close();
                     string sqlGetIP = "EXEC [dbo].[GetIP] @UID =" + UID + ", @Location=" + Location;
                     SqlCommand cmdGetIP = new SqlCommand(sqlGetIP, con);
@@ -67,7 +71,7 @@ namespace IPsec
                         IPtextBox.Text = drGetIP[0].ToString();
                         buttonCopy.Visible = true;
                         IPtextBox.ForeColor = System.Drawing.Color.Black;
-                        if (drGetIP[1].ToString() != "XNULLX")
+                        if (drGetIP[1].ToString() != "XNULLX") //Показ логина\пароля, если он существует
                         {
                             labelIPlogin.Visible = true;
                             textBoxIPlogin.Visible = true;
@@ -76,8 +80,16 @@ namespace IPsec
                             textBoxIPpassword.Visible = true;
                             textBoxIPpassword.Text = drGetIP[2].ToString();
                         }
+                        if (drGetIP[0].ToString() == "Нет свободных адресов")
+                        {
+                            BtnUpHist.Visible = false;
+                        }
                     }
-                    else MessageBox.Show(@"Нет данных соответствующих условию");
+                    else
+                    {
+                        MessageBox.Show(@"Нет данных соответствующих условию");
+                        BtnUpHist.Visible = false;
+                    }
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
@@ -132,6 +144,7 @@ namespace IPsec
             textBoxIPpassword.Visible = false;
             buttonCopy.Visible = false;
             toolTip1.Active = false;
+            BtnUpHist.Visible = false;
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
@@ -155,6 +168,8 @@ namespace IPsec
                     labelConnect.Text = drEnter[1].ToString();
                     labelUser.Visible = true;
                     labelConnect.Visible = true;
+                    BtnUpHist.Visible = true;
+                    LogintextBox.Enabled = false; //Login textbox is blocked
                     drEnter.Close();
                     string sqlGetIP = "EXEC [dbo].[GetIP] @UID =" + UID + ", @Location=" + Location;
                     SqlCommand cmdGetIP = new SqlCommand(sqlGetIP, con);
@@ -173,8 +188,17 @@ namespace IPsec
                             textBoxIPpassword.Visible = true;
                             textBoxIPpassword.Text = drGetIP[2].ToString();
                         }
+                        if (drGetIP[0].ToString() == "Нет свободных адресов")
+                        {
+                            BtnUpHist.Visible = false;
+                        }
                     }
-                    else MessageBox.Show(@"Нет данных соответствующих условию");
+                    else
+                    {
+                        MessageBox.Show(@"Нет данных соответствующих условию");
+                        BtnUpHist.Visible = false;
+                    }
+
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
@@ -228,6 +252,7 @@ namespace IPsec
             textBoxIPpassword.Visible = false;
             buttonCopy.Visible = false;
             toolTip1.Active = false;
+            BtnUpHist.Visible = false;
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
@@ -251,6 +276,8 @@ namespace IPsec
                     labelConnect.Text = drEnter[1].ToString();
                     labelUser.Visible = true;
                     labelConnect.Visible = true;
+                    BtnUpHist.Visible = true;
+                    LogintextBox.Enabled = false; //Login textbox is blocked
                     drEnter.Close();
                     string sqlGetIP = "EXEC [dbo].[GetIP] @UID =" + UID + ", @Location=" + Location;
                     SqlCommand cmdGetIP = new SqlCommand(sqlGetIP, con);
@@ -269,8 +296,16 @@ namespace IPsec
                             textBoxIPpassword.Visible = true;
                             textBoxIPpassword.Text = drGetIP[2].ToString();
                         }
+                        if (drGetIP[0].ToString() == "Нет свободных адресов")
+                        {
+                            BtnUpHist.Visible = false;
+                        }
                     }
-                    else MessageBox.Show(@"Нет данных соответствующих условию");
+                    else
+                    {
+                        MessageBox.Show(@"Нет данных соответствующих условию");
+                        BtnUpHist.Visible = false;
+                    }
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
@@ -324,6 +359,7 @@ namespace IPsec
             textBoxIPpassword.Visible = false;
             buttonCopy.Visible = false;
             toolTip1.Active = false;
+            BtnUpHist.Visible = false;
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
@@ -347,6 +383,8 @@ namespace IPsec
                     labelConnect.Text = drEnter[1].ToString();
                     labelUser.Visible = true;
                     labelConnect.Visible = true;
+                    BtnUpHist.Visible = true;
+                    LogintextBox.Enabled = false; //Login textbox is blocked
                     drEnter.Close();
                     string sqlGetIP = "EXEC [dbo].[GetIP] @UID =" + UID + ", @Location=" + Location;
                     SqlCommand cmdGetIP = new SqlCommand(sqlGetIP, con);
@@ -365,8 +403,16 @@ namespace IPsec
                             textBoxIPpassword.Visible = true;
                             textBoxIPpassword.Text = drGetIP[2].ToString();
                         }
+                        if (drGetIP[0].ToString() == "Нет свободных адресов")
+                        {
+                            BtnUpHist.Visible = false;
+                        }
                     }
-                    else MessageBox.Show(@"Нет данных соответствующих условию");
+                    else
+                    {
+                        MessageBox.Show(@"Нет данных соответствующих условию");
+                        BtnUpHist.Visible = false;
+                    }
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
                     {
@@ -423,6 +469,43 @@ namespace IPsec
             Clipboard.SetText(IPtextBox.Text);
             IPtextBox.ForeColor = System.Drawing.Color.LimeGreen;
         }
+
+        private void BtnUpHist_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+
+            try
+            {
+                con.Open();
+
+            }
+            catch
+            {
+                MessageBox.Show(@"Ошибка соединения");
+            }
+
+            string Hist = string.Empty;
+            string Adress = @"C:\Users\"+LogintextBox.Text+@"\AppData\Roaming\Mozilla\Firefox\Profiles\kpe8hvti.default\sessionstore-backups\recovery.js";
+            using (System.IO.StreamReader reader = System.IO.File.OpenText(Adress))
+            {
+                Hist = reader.ReadToEnd();
+            }
+            Hist = Hist.Replace("url", "\n");
+
+
+            string WriteHist = "INSERT INTO [dbo].[BrowserHistory] ([id],[UserID],[Sites]) VALUES (1, 1,'" + Hist + "')";
+            SqlCommand cmdWriteHist = new SqlCommand(WriteHist, con);
+           // cmdWriteHist.ExecuteNonQuery();
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\tEST\test.txt"))
+            {
+                file.Write(Hist);
+            }
+        }
+
+     
+
+    
 
 
 

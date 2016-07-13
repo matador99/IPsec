@@ -54,6 +54,7 @@
             this.buttonCopy = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.BtnUpHist = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UKR
@@ -180,16 +181,16 @@
             // 
             this.labelHistory.AutoSize = true;
             this.labelHistory.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.labelHistory.Location = new System.Drawing.Point(150, 331);
+            this.labelHistory.Location = new System.Drawing.Point(114, 381);
             this.labelHistory.Name = "labelHistory";
-            this.labelHistory.Size = new System.Drawing.Size(48, 15);
+            this.labelHistory.Size = new System.Drawing.Size(79, 15);
             this.labelHistory.TabIndex = 13;
-            this.labelHistory.Text = "History";
+            this.labelHistory.Text = "ShortHistory";
             this.labelHistory.Visible = false;
             // 
             // buttonHistory
             // 
-            this.buttonHistory.Location = new System.Drawing.Point(197, 327);
+            this.buttonHistory.Location = new System.Drawing.Point(199, 377);
             this.buttonHistory.Name = "buttonHistory";
             this.buttonHistory.Size = new System.Drawing.Size(75, 23);
             this.buttonHistory.TabIndex = 10;
@@ -305,7 +306,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(0, 350);
+            this.label2.Location = new System.Drawing.Point(0, 400);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 24;
@@ -323,12 +324,25 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Последние изменения";
             // 
+            // BtnUpHist
+            // 
+            this.BtnUpHist.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnUpHist.Location = new System.Drawing.Point(10, 329);
+            this.BtnUpHist.Name = "BtnUpHist";
+            this.BtnUpHist.Size = new System.Drawing.Size(262, 42);
+            this.BtnUpHist.TabIndex = 25;
+            this.BtnUpHist.Text = "Upload History";
+            this.BtnUpHist.UseVisualStyleBackColor = true;
+            this.BtnUpHist.Visible = false;
+            this.BtnUpHist.Click += new System.EventHandler(this.BtnUpHist_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(284, 362);
+            this.ClientSize = new System.Drawing.Size(284, 412);
+            this.Controls.Add(this.BtnUpHist);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.textBoxIPpassword);
@@ -354,8 +368,8 @@
             this.Controls.Add(this.UKR);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(300, 400);
-            this.MinimumSize = new System.Drawing.Size(300, 400);
+            this.MaximumSize = new System.Drawing.Size(300, 450);
+            this.MinimumSize = new System.Drawing.Size(300, 450);
             this.Name = "Form1";
             this.Text = "IPsec";
             this.ResumeLayout(false);
@@ -389,6 +403,7 @@
         private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button BtnUpHist;
     }
 }
 
