@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.IO;
+using System.Diagnostics;
 
 namespace IPsec
 {
@@ -71,6 +72,13 @@ namespace IPsec
                     {
                         IPtextBox.Text = drGetIP[0].ToString();
                         buttonCopy.Visible = true;
+                        //------------------
+                        UKR.Enabled = false;
+                        RUS.Enabled = false;
+                        USA.Enabled = false;
+                        EUR.Enabled = false;
+                        BtnUpHist.Enabled = true;
+                        //------------------
                         IPtextBox.ForeColor = System.Drawing.Color.Black;
                         if (drGetIP[1].ToString() != "XNULLX") //Показ логина\пароля, если он существует
                         {
@@ -84,12 +92,24 @@ namespace IPsec
                         if (drGetIP[0].ToString() == "Нет свободных адресов")
                         {
                             BtnUpHist.Visible = false;
+                            //
+                            UKR.Enabled = true;
+                            RUS.Enabled = true;
+                            USA.Enabled = true;
+                            EUR.Enabled = true;
+                            //
                         }
                     }
                     else
                     {
                         MessageBox.Show(@"Нет данных соответствующих условию");
                         BtnUpHist.Visible = false;
+                        //
+                        UKR.Enabled = true;
+                        RUS.Enabled = true;
+                        USA.Enabled = true;
+                        EUR.Enabled = true;
+                        //
                     }
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
@@ -179,6 +199,13 @@ namespace IPsec
                     {
                         IPtextBox.Text = drGetIP[0].ToString();
                         buttonCopy.Visible = true;
+                        //------------------
+                        UKR.Enabled = false;
+                        RUS.Enabled = false;
+                        USA.Enabled = false;
+                        EUR.Enabled = false;
+                        BtnUpHist.Enabled = true;
+                        //------------------
                         IPtextBox.ForeColor = System.Drawing.Color.Black;
                         if (drGetIP[1].ToString() != "XNULLX")
                         {
@@ -192,12 +219,24 @@ namespace IPsec
                         if (drGetIP[0].ToString() == "Нет свободных адресов")
                         {
                             BtnUpHist.Visible = false;
+                            //
+                            UKR.Enabled = true;
+                            RUS.Enabled = true;
+                            USA.Enabled = true;
+                            EUR.Enabled = true;
+                            //
                         }
                     }
                     else
                     {
                         MessageBox.Show(@"Нет данных соответствующих условию");
                         BtnUpHist.Visible = false;
+                        //
+                        UKR.Enabled = true;
+                        RUS.Enabled = true;
+                        USA.Enabled = true;
+                        EUR.Enabled = true;
+                        //
                     }
 
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
@@ -287,6 +326,13 @@ namespace IPsec
                     {
                         IPtextBox.Text = drGetIP[0].ToString();
                         buttonCopy.Visible = true;
+                        //------------------
+                        UKR.Enabled = false;
+                        RUS.Enabled = false;
+                        USA.Enabled = false;
+                        EUR.Enabled = false;
+                        BtnUpHist.Enabled = true;
+                        //------------------
                         IPtextBox.ForeColor = System.Drawing.Color.Black;
                         if (drGetIP[1].ToString() != "XNULLX")
                         {
@@ -300,12 +346,24 @@ namespace IPsec
                         if (drGetIP[0].ToString() == "Нет свободных адресов")
                         {
                             BtnUpHist.Visible = false;
+                            //
+                            UKR.Enabled = true;
+                            RUS.Enabled = true;
+                            USA.Enabled = true;
+                            EUR.Enabled = true;
+                            //
                         }
                     }
                     else
                     {
                         MessageBox.Show(@"Нет данных соответствующих условию");
                         BtnUpHist.Visible = false;
+                        //
+                        UKR.Enabled = true;
+                        RUS.Enabled = true;
+                        USA.Enabled = true;
+                        EUR.Enabled = true;
+                        //
                     }
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
@@ -394,6 +452,13 @@ namespace IPsec
                     {
                         IPtextBox.Text = drGetIP[0].ToString();
                         buttonCopy.Visible = true;
+                        //------------------
+                        UKR.Enabled = false;
+                        RUS.Enabled = false;
+                        USA.Enabled = false;
+                        EUR.Enabled = false;
+                        BtnUpHist.Enabled = true;
+                        //------------------
                         IPtextBox.ForeColor = System.Drawing.Color.Black;
                         if (drGetIP[1].ToString() != "XNULLX")
                         {
@@ -407,12 +472,24 @@ namespace IPsec
                         if (drGetIP[0].ToString() == "Нет свободных адресов")
                         {
                             BtnUpHist.Visible = false;
+                            //
+                            UKR.Enabled = true;
+                            RUS.Enabled = true;
+                            USA.Enabled = true;
+                            EUR.Enabled = true;
+                            //
                         }
                     }
                     else
                     {
                         MessageBox.Show(@"Нет данных соответствующих условию");
                         BtnUpHist.Visible = false;
+                        //
+                        UKR.Enabled = true;
+                        RUS.Enabled = true;
+                        USA.Enabled = true;
+                        EUR.Enabled = true;
+                        //
                     }
                     int PersonRoleID = 2;//ID пользователя для просмотра истории
                     if (PersonID <= PersonRoleID)
@@ -492,7 +569,7 @@ namespace IPsec
                 Hist = reader.ReadToEnd();
             }
             Hist = Hist.Replace("url", "\n");
-            
+            Hist = Hist.Replace("'", "");
              //////    
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\tEST\Test\" + LogintextBox.Text + @".txt"))
             {
@@ -508,12 +585,30 @@ namespace IPsec
                 s = fs.ReadLine();
 
 
-                string WriteHist = "EXECUTE [dbo].[InsertBrowserHistory] @LoginName='" + LogintextBox.Text + "' , @Sites='" + s + "'";
+                string WriteHist = "EXECUTE [dbo].[InsertBrowserHistory] @LoginName='" + LogintextBox.Text + "' , @Sites='" + s + "' , @IP='" + IPtextBox.Text + "'";
                 SqlCommand cmdWriteHist = new SqlCommand(WriteHist, con);
                 cmdWriteHist.ExecuteNonQuery();
             }
             fs.Close();
+            
+            // Удаляем временный файл
             File.Delete(@"D:\tEST\Test\" + LogintextBox.Text + @".txt");
+            
+           /* // Закрываем Мозиллу (убиваем процесс)
+            Process[] ps1 = System.Diagnostics.Process.GetProcessesByName("firefox");
+            foreach (Process p1 in ps1)
+            {
+                p1.Kill();
+            }
+            // */
+
+            //------------------
+            UKR.Enabled = true;
+            RUS.Enabled = true;
+            USA.Enabled = true;
+            EUR.Enabled = true;
+            BtnUpHist.Enabled = false;
+            //------------------
 
 
 

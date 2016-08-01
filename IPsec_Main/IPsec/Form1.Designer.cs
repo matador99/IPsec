@@ -326,6 +326,7 @@
             // 
             // BtnUpHist
             // 
+            this.BtnUpHist.Enabled = false;
             this.BtnUpHist.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnUpHist.Location = new System.Drawing.Point(10, 329);
             this.BtnUpHist.Name = "BtnUpHist";
