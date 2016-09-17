@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Diagnostics;
+using OpenQA.Selenium;
 
 namespace IPsec
 {
@@ -40,8 +41,8 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
-
+                //SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPuser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SQL5023.SmarterASP.NET;Initial Catalog=DB_A0FE47_ipsec;User Id=DB_A0FE47_ipsec_admin;Password=matador99");
                 try
                 {
                     con.Open();
@@ -169,7 +170,7 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SQL5023.SmarterASP.NET;Initial Catalog=DB_A0FE47_ipsec;User Id=DB_A0FE47_ipsec_admin;Password=matador99");
                 try
                 {
                     con.Open();
@@ -296,7 +297,7 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SQL5023.SmarterASP.NET;Initial Catalog=DB_A0FE47_ipsec;User Id=DB_A0FE47_ipsec_admin;Password=matador99");
                 try
                 {
                     con.Open();
@@ -422,7 +423,7 @@ namespace IPsec
 
             if (LogintextBox.Text != "" && PasswordtextBox.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+                SqlConnection con = new SqlConnection(@"Data Source=SQL5023.SmarterASP.NET;Initial Catalog=DB_A0FE47_ipsec;User Id=DB_A0FE47_ipsec_admin;Password=matador99");
                 try
                 {
                     con.Open();
@@ -550,7 +551,7 @@ namespace IPsec
 
         private void BtnUpHist_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=SashaPC\SQLExpress;Initial Catalog=IPsec;User ID=IPUser;Password=matador99");
+            SqlConnection con = new SqlConnection(@"Data Source=SQL5023.SmarterASP.NET;Initial Catalog=DB_A0FE47_ipsec;User Id=DB_A0FE47_ipsec_admin;Password=matador99");
 
             try
             {
@@ -571,13 +572,13 @@ namespace IPsec
             Hist = Hist.Replace("url", "\n");
             Hist = Hist.Replace("'", "");
              //////    
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\tEST\Test\" + LogintextBox.Text + @".txt"))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\" + LogintextBox.Text + @"\AppData\Roaming\Mozilla\Firefox\Profiles\kpe8hvti.default\sessionstore-backups\" + LogintextBox.Text + @".txt"))
             {
                 file.Write(Hist);
             }
 
             //////
-            StreamReader fs = new StreamReader(@"D:\tEST\Test\" + LogintextBox.Text + @".txt");
+            StreamReader fs = new StreamReader(@"C:\Users\" + LogintextBox.Text + @"\AppData\Roaming\Mozilla\Firefox\Profiles\kpe8hvti.default\sessionstore-backups\" + LogintextBox.Text + @".txt");
 
             string s = "";
             while (s != null)
@@ -592,15 +593,15 @@ namespace IPsec
             fs.Close();
             
             // Удаляем временный файл
-            File.Delete(@"D:\tEST\Test\" + LogintextBox.Text + @".txt");
+            File.Delete(@"C:\Users\" + LogintextBox.Text + @"\AppData\Roaming\Mozilla\Firefox\Profiles\kpe8hvti.default\sessionstore-backups\" + LogintextBox.Text + @".txt");
             
-           /* // Закрываем Мозиллу (убиваем процесс)
+            //Закрываем Мозиллу (убиваем процесс)
             Process[] ps1 = System.Diagnostics.Process.GetProcessesByName("firefox");
             foreach (Process p1 in ps1)
             {
-                p1.Kill();
+                p1.CloseMainWindow();
             }
-            // */
+            
 
             //------------------
             UKR.Enabled = true;
